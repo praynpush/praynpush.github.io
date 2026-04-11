@@ -1,0 +1,17 @@
+image:
+  name: floryn90/hugo:ext-0.160.0
+  entrypoint: ["/bin/sh", "-c"]
+
+variables:
+  GIT_DEPTH: 0
+
+pages:
+  script:
+    - apk add --no-cache nodejs npm
+    - npm install
+    - hugo --gc --minify
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
