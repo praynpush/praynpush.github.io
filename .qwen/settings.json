@@ -11,7 +11,8 @@
       "Bash(sleep *)",
       "Bash(curl *)",
       "Bash(ss *)",
-      "Bash(kill *)"
+      "Bash(kill *)",
+      "Bash(mkdir *)"
     ]
   },
   "$version": 3
