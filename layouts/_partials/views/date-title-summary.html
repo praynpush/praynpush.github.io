@@ -1,0 +1,55 @@
+{{ $item := .item }}
+{{ $page := .page }}
+{{ $summary := partial "functions/get_summary" $item }}
+{{ $summary =  $summary | page.RenderString }}
+{{ $displayDate := .item.Params.event_start | default .item.Date }}
+{{ $resource := partial "functions/get_featured_image.html" $item }}
+{{ $anchor := "Center" }}
+{{ if and $item.Params.image (reflect.IsMap $item.Params.image) }}
+  {{ $anchor = $item.Params.image.focal_point | default "Center" }}
+{{ end }}
+<article class="flex flex-col sm:flex-row gap-4 sm:gap-6 py-5 border-b border-zinc-200 dark:border-zinc-800 last:border-b-0">
+  <div class="sm:flex-1 group relative flex flex-col items-start">
+    <h2 class="text-lg font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
+      <a href="{{$item.RelPermalink}}" class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+        <span class="relative z-10">{{$item.Title}}</span>
+      </a>
+    </h2>
+    <p class="relative z-10 mt-2 text-sm text-zinc-600 dark:text-zinc-400 line-clamp-3">{{$summary}}</p>
+    <div aria-hidden="true" class="relative z-10 mt-3 flex items-center text-sm font-medium text-primary-500">
+    {{ T "read_more" | default "Read more" }}
+      <svg aria-hidden="true" class="ml-1 h-4 w-4 stroke-current" fill="none" viewBox="0 0 16 16">
+        <path d="M6.75 5.75 9.25 8l-2.5 2.25" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+      </svg>
+    </div>
+  </div>
+  {{ with $resource }}
+  <div class="relative flex-shrink-0 w-full sm:w-40 h-40 sm:h-28 rounded-xl overflow-hidden bg-zinc-100 dark:bg-zinc-800 group/img">
+    {{ $canProcess := and (reflect.IsImageResourceProcessable .) (ne .MediaType.SubType "gif") }}
+    {{ if not $canProcess }}
+      <a href="{{$item.RelPermalink}}" class="block h-full">
+        <img class="w-full h-full object-cover transition-transform duration-300 group-hover/img:scale-105"
+             src="{{ .RelPermalink }}"
+             loading="lazy" decoding="async"
+             alt="{{ $item.Title | plainify }}">
+      </a>
+    {{ else }}
+      {{ $thumb := .Fill (printf "320x224 %s" $anchor) }}
+      <a href="{{$item.RelPermalink}}" class="block h-full">
+        <img class="w-full h-full object-cover transition-transform duration-300 group-hover/img:scale-105"
+             src="{{ $thumb.RelPermalink }}"
+             width="{{ $thumb.Width }}" height="{{ $thumb.Height }}"
+             loading="lazy" decoding="async"
+             alt="{{ $item.Title | plainify }}">
+      </a>
+    {{ end }}
+  </div>
+  {{ end }}
+  <div class="hidden sm:flex flex-col items-end flex-shrink-0 w-20 self-start pt-1">
+    <div class="flex flex-col items-center bg-zinc-50 dark:bg-zinc-800/80 rounded-lg px-2 py-2.5 text-zinc-500 dark:text-zinc-400 leading-none">
+      <span class="text-xs font-semibold uppercase tracking-wide">{{ time.Format "Jan" $displayDate }}</span>
+      <span class="text-xl font-bold text-zinc-700 dark:text-zinc-200 leading-tight mt-0.5">{{ time.Format "02" $displayDate }}</span>
+      <span class="text-[10px] font-medium opacity-60 mt-0.5">{{ time.Format "2006" $displayDate }}</span>
+    </div>
+  </div>
+</article>

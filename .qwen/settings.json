@@ -12,7 +12,14 @@
       "Bash(curl *)",
       "Bash(ss *)",
       "Bash(kill *)",
-      "Bash(mkdir *)"
+      "Bash(mkdir *)",
+      "Bash(grep *)",
+      "Bash(ls *)",
+      "Bash(find *)",
+      "Bash(identify *)",
+      "Bash(git remote *)",
+      "Bash(git push *)",
+      "Bash(git *)"
     ]
   },
   "$version": 3
