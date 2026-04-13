@@ -23,7 +23,9 @@
       "Bash(hugo *)",
       "Bash(rm *)",
       "Bash(do *)",
-      "Bash(done)"
+      "Bash(done)",
+      "Bash(file *)",
+      "WebSearch"
     ]
   },
   "$version": 3

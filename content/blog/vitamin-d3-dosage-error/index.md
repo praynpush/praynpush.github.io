@@ -2,7 +2,7 @@
 title: 维生素 D3 摄入剂量的严重错误建议：你为什么可能一直在吃太少
 summary: 官方推荐的维生素 D3 剂量可能远远不够，最新研究表明更高剂量的安全性和益处。了解为什么你需要重新审视你的维生素 D3 摄入策略。
 date: 2026-04-08
-image: featured.jpg
+image: featured.png
 tags:
   - 维生素D3
   - 剂量建议

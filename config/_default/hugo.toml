@@ -15,3 +15,7 @@ theme                  = "hugo-theme-stack"
 [taxonomies]
     tag  = "tags"
     category = "categories"
+
+[outputs]
+    home = ["HTML", "RSS", "JSON"]
+

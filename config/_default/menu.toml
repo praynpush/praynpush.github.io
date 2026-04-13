@@ -4,11 +4,6 @@
     url        = "/"
     weight     = 10
 
-[[main]]
-    identifier = "blog"
-    name       = "博客"
-    url        = "/blog/"
-    weight     = 20
 
 [[main]]
     identifier = "tags"

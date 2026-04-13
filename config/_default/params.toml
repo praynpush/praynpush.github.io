@@ -7,8 +7,9 @@ rssFullContent = true
 
 [sidebar]
     compact  = false
-    subtitle = ""
-    avatar   = ""
+    subtitle = "探索生活与健康"
+    avatar   = "avatar.png"
+    emoji    = "🌿"
 
 [article]
     headingAnchor = false
@@ -29,7 +30,10 @@ rssFullContent = true
         { type = "archives", params = { limit = 5 } },
         { type = "tag-cloud", params = { limit = 20 } },
     ]
-    page = [{ type = "toc" }]
+    page = [
+        { type = "search" },
+        { type = "toc" }
+    ]
 
 [colorScheme]
     toggle  = true
