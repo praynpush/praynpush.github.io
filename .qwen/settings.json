@@ -19,7 +19,8 @@
       "Bash(identify *)",
       "Bash(git remote *)",
       "Bash(git push *)",
-      "Bash(git *)"
+      "Bash(git *)",
+      "Bash(hugo *)"
     ]
   },
   "$version": 3
