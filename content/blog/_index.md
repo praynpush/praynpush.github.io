@@ -1,4 +1,3 @@
 ---
-title: ''
-view: date-title-summary
+title: Blog
 ---

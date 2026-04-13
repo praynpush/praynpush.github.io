@@ -20,7 +20,10 @@
       "Bash(git remote *)",
       "Bash(git push *)",
       "Bash(git *)",
-      "Bash(hugo *)"
+      "Bash(hugo *)",
+      "Bash(rm *)",
+      "Bash(do *)",
+      "Bash(done)"
     ]
   },
   "$version": 3
