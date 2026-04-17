@@ -17,5 +17,5 @@ theme                  = "hugo-theme-stack"
     category = "categories"
 
 [outputs]
-    home = ["HTML", "RSS", "JSON"]
+    home = ["HTML", "RSS"]
 
