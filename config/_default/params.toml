@@ -5,10 +5,12 @@ rssFullContent = true
     since      = 2026
     customText = ""
 
+favicon  = "favicon.png"
+
 [sidebar]
     compact  = false
     subtitle = "探索生活与健康"
-    avatar   = "avatar.png"
+    avatar   = "favicon.png"
     emoji    = "🌿"
 
 [article]
@@ -46,3 +48,9 @@ rssFullContent = true
 [comments]
     enabled  = false
     provider = ""
+
+[opengraph]
+    defaultImage = "/og-card.png"
+    [opengraph.twitter]
+        site = "praynpush"
+        card = "summary_large_image"
