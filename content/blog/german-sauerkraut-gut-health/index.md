@@ -9,6 +9,7 @@ tags:
 categories:
   - 健康饮食
 image: featured.png
+youtube: DTrHAxusLJA
 ---
 
 说到补充肠道益生菌，很多人第一反应是买昂贵的益生菌胶囊或者喝酸奶。但你可能不知道，在你常去的超市（如 Costco 和 ALDI）的货架上，隐藏着一种被低估的“肠道超级食物”——**德国酸菜（Sauerkraut）**。
