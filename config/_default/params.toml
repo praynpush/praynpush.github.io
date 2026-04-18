@@ -5,12 +5,12 @@ rssFullContent = true
     since      = 2026
     customText = ""
 
-favicon  = "favicon.png"
+# favicon  = "avatar.png"
 
 [sidebar]
     compact  = false
     subtitle = "探索生活与健康"
-    avatar   = "favicon.png"
+    avatar   = "avatar.png"
     emoji    = "🌿"
 
 [article]
