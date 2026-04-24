@@ -54,104 +54,103 @@ if ('serviceWorker' in navigator) {
 <style>
 #pwa-update-toast {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: var(--card-background);
-    color: var(--body-text-color);
-    padding: 15px 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    bottom: 30px;
+    left: 50%;
+    transform: translate(-50%, 150%);
+    background-color: var(--accent-color);
+    color: var(--accent-color-text, #fff);
+    padding: 10px 14px 10px 20px;
+    border-radius: 30px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 12px;
     z-index: 9999;
-    transform: translateY(150%);
     opacity: 0;
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
-    border: 1px solid var(--card-border-color, rgba(0,0,0,0.05));
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease;
 }
 
 [data-scheme="dark"] #pwa-update-toast {
-    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.6);
 }
 
 #pwa-update-toast.show {
-    transform: translateY(0);
+    transform: translate(-50%, 0);
     opacity: 1;
+    animation: pwa-pulse 2s infinite;
+}
+
+@keyframes pwa-pulse {
+    0% { box-shadow: 0 0 0 0 rgba(100, 100, 100, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(100, 100, 100, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(100, 100, 100, 0); }
 }
 
 .pwa-toast-content {
     display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
-
-.pwa-toast-title {
-    font-weight: bold;
-    font-size: 1rem;
-}
-
-.pwa-toast-message {
-    font-size: 0.85rem;
-    opacity: 0.8;
-}
-
-.pwa-toast-buttons {
-    display: flex;
+    align-items: center;
     gap: 8px;
-    margin-left: 10px;
+    font-weight: 500;
+    font-size: 1.05rem;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.pwa-icon {
+    font-size: 1.2rem;
 }
 
 #pwa-update-btn {
-    background-color: var(--accent-color);
-    color: #fff;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: var(--accent-color-text, #fff);
     border: none;
-    padding: 8px 16px;
-    border-radius: 6px;
+    padding: 6px 16px;
+    border-radius: 20px;
     cursor: pointer;
-    font-size: 0.9rem;
-    font-weight: 500;
-    transition: opacity 0.2s;
+    font-size: 0.95rem;
+    font-weight: bold;
+    transition: background-color 0.2s, transform 0.1s;
+    white-space: nowrap;
+}
+
+[data-scheme="dark"] #pwa-update-btn {
+    background-color: rgba(0, 0, 0, 0.25);
 }
 
 #pwa-update-btn:hover {
-    opacity: 0.9;
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}
+
+[data-scheme="dark"] #pwa-update-btn:hover {
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 #pwa-close-btn {
-    background-color: transparent;
-    color: var(--body-text-color);
-    border: 1px solid var(--card-border-color, rgba(0,0,0,0.1));
-    padding: 8px 12px;
-    border-radius: 6px;
+    background: transparent;
+    color: var(--accent-color-text, #fff);
+    border: none;
+    padding: 4px;
+    margin-left: -4px;
     cursor: pointer;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     opacity: 0.7;
-    transition: opacity 0.2s, background-color 0.2s;
-}
-
-[data-scheme="dark"] #pwa-close-btn {
-    border: 1px solid rgba(255,255,255,0.2);
+    transition: opacity 0.2s;
 }
 
 #pwa-close-btn:hover {
     opacity: 1;
-    background-color: rgba(0,0,0,0.05);
-}
-
-[data-scheme="dark"] #pwa-close-btn:hover {
-    background-color: rgba(255,255,255,0.05);
 }
 </style>
 
 <div id="pwa-update-toast">
     <div class="pwa-toast-content">
-        <span class="pwa-toast-title">发现新内容</span>
-        <span class="pwa-toast-message">网站已发布更新，请刷新以查看最新内容。</span>
+        <span class="pwa-icon">✨</span>
+        <span class="pwa-toast-message">发现新内容</span>
     </div>
-    <div class="pwa-toast-buttons">
-        <button id="pwa-close-btn">忽略</button>
-        <button id="pwa-update-btn">立即刷新</button>
-    </div>
+    <button id="pwa-update-btn">刷新</button>
+    <button id="pwa-close-btn" aria-label="关闭">✕</button>
 </div>
